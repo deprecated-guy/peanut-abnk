@@ -55,7 +55,6 @@
     "eslint-stylistic": "0.0.0-0",
     "husky": "^8.0.3",
     "lint-staged": "^15.1.0",
-
     "stylelint": "^15.11.0",
     "stylelint-order": "^6.0.3",
     "@angular-devkit/build-angular": "^17.0.0",
