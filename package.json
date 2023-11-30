@@ -8,7 +8,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lintcheck": "eslint --quiet --c .js,.ts .",
+    "lintcheck": "eslint --fix .",
     "typecheck": "tsc",
     "commitlint": "commitlint --edit",
     "prepare": "npx husky install & npx lint-staged"
