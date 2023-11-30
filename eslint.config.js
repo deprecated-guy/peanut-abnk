@@ -5,7 +5,9 @@ module.exports = antfu({
 		semi: true,
 		indent: 'tab',
 	},
+	ignores: ['*.json'],
 	typescript: true,
+	jsonc: false,
 }, {
 
 	rules: {
@@ -23,5 +25,5 @@ module.exports = antfu({
 			{ vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
 		],
 	},
-	ignores: ['*.json', '*.e2e-spec.ts'],
+	ignores: ['*.json', 'tsconfig.*.json'],
 });
