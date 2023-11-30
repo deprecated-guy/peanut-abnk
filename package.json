@@ -1,12 +1,35 @@
 {
   "name": "bank-app",
   "version": "0.0.0",
+  "packageManager": "pnpm@8.9.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "lintcheck": "eslint --quiet --ext .js,.ts.",
+    "typecheck": "tsc",
+    "commitlint": "commitlint --edit",
+    "prepare": "npx husky install & npx lint-staged"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx lint-staged --concurrent false",
+      "pre-push": "npx lint-staged -concurrent false"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier . --write",
+      "gt add -f ."
+    ],
+    "*.scss": [
+      "stylelint **/*.scss",
+      "prettier . --write",
+      "git add . -f"
+    ]
   },
   "private": true,
   "dependencies": {
@@ -23,6 +46,18 @@
     "zone.js": "~0.14.2"
   },
   "devDependencies": {
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "@antfu/eslint-config": "^2.1.1",
+    "@commitlint/config-conventional": "^18.4.3",
+    "@stylistic/eslint-plugin": "^1.4.1",
+    "commitlint": "^18.4.3",
+    "eslint": "^8.54.0",
+    "eslint-stylistic": "0.0.0-0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.1.0",
+
+    "stylelint": "^15.11.0",
+    "stylelint-order": "^6.0.3",
     "@angular-devkit/build-angular": "^17.0.0",
     "@angular/cli": "^17.0.0",
     "@angular/compiler-cli": "^17.0.0",
